@@ -1,5 +1,7 @@
 # Bubbleroid: Asteroids Game in Rust
 
+![Bubbleroid Screenshot](screenshot.png)
+
 This project is an implementation of the classic Asteroids game using Rust and the GGEZ game engine. It features a unique gravitational system and deformable asteroids that add extra layers of complexity and visual appeal to the traditional gameplay.
 
 ## Design Pattern
