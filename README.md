@@ -1,14 +1,14 @@
-# Asteroids Game in Rust
+# Bubbleroid: Asteroids Game in Rust
 
-This project is an implementation of the classic Asteroids game using Rust and the GGEZ game engine. It features a unique gravitational system that adds an extra layer of complexity and challenge to the traditional gameplay.
+This project is an implementation of the classic Asteroids game using Rust and the GGEZ game engine. It features a unique gravitational system and deformable asteroids that add extra layers of complexity and visual appeal to the traditional gameplay.
 
 ## Design Pattern
 
-The game follows the Entity-Component-System (ECS) architectural pattern, which is commonly used in game development. While not a full ECS implementation, the game's structure is inspired by this pattern:
+The game follows a structure inspired by the Entity-Component-System (ECS) architectural pattern, commonly used in game development:
 
-- Entities: Player ship, asteroids, bullets, and particles.
-- Components: Position, velocity, size, mass, and destruction status.
-- Systems: Update, collision detection, rendering, and input handling.
+- Entities: Player ship, asteroids, bullets, and particles (including thruster particles).
+- Components: Position, velocity, size, mass, deformation, and destruction status.
+- Systems: Update, collision detection, rendering, particle generation, and input handling.
 
 The main game loop is handled by the GGEZ event system, which calls the appropriate update and draw methods.
 
@@ -17,43 +17,50 @@ The main game loop is handled by the GGEZ event system, which calls the appropri
 1. **ggez** (0.x): A lightweight game framework for making 2D games with minimum effort.
    - Handles window creation, event loop, and rendering.
    - Provides utilities for drawing shapes, text, and handling input.
-
 2. **rand** (0.x): A Rust library for random number generation.
-   - Used for generating random positions, sizes, and velocities for asteroids.
+   - Used for generating random positions, sizes, and velocities for asteroids and particles.
 
 ## Features
 
-1. **Gravitational Physics**: 
+1. **Gravitational Physics**:
    - Implements a simplified gravitational system where asteroids and the player ship are affected by each other's gravity.
    - Gravity strength is proportional to the mass (size) of the asteroids.
 
-2. **Dynamic Asteroid Generation**:
+2. **Deformable Asteroids**:
+   - Asteroids can deform upon collision, creating more realistic and visually interesting interactions.
+   - Deformation is simulated using a spring-mass system.
+
+3. **Dynamic Asteroid Generation**:
    - Asteroids are randomly generated with varying sizes and velocities.
    - When destroyed, larger asteroids split into smaller ones.
 
-3. **Level Progression**:
+4. **Level Progression**:
    - Difficulty increases with each level, introducing more asteroids.
 
-4. **Particle Effects**:
+5. **Particle Effects**:
    - Explosions are visualized using a particle system when asteroids are destroyed.
+   - Thruster particles are generated behind the player's ship, with intensity inversely proportional to ship speed.
 
-5. **Scoring System**:
+6. **Scoring System**:
    - Players earn points for destroying asteroids, with smaller asteroids worth more points.
 
-6. **Wrap-around World**:
+7. **Wrap-around World**:
    - Objects that move off one edge of the screen appear on the opposite side.
 
-7. **Player Controls**:
+8. **Player Controls**:
    - Thrust: Up Arrow
    - Rotate: Left/Right Arrows
    - Shoot: Spacebar
 
-8. **Game Over and Restart**:
+9. **Game Over and Restart**:
    - The game ends when the player collides with an asteroid.
-   - Players can restart the game after a game over.
+   - Players can restart the game after a game over by pressing 'R'.
 
-9. **HUD (Heads-Up Display)**:
-   - Displays current score and level.
+10. **HUD (Heads-Up Display)**:
+    - Displays current score, level, and other game information.
+
+11. **Dynamic Thruster Effect**:
+    - The player's ship generates more thruster particles when moving slowly or stationary, and fewer when moving quickly.
 
 ## Getting Started
 
@@ -68,12 +75,10 @@ The main game loop is handled by the GGEZ event system, which calls the appropri
    ```
    git clone https://github.com/N3BB3Z4R/rust-asteroids-game.git
    ```
-
 2. Navigate to the project directory:
    ```
-   cd asteroids-rust-game
+   cd rust-asteroids-game
    ```
-
 3. Build and run the game:
    ```
    cargo run --release
