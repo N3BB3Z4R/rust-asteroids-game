@@ -88,12 +88,47 @@ The main game loop is handled by the GGEZ event system, which calls the appropri
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgments
 
 - Original Asteroids game by Atari
 - GGEZ community for the excellent game framework
 - Rust community for the amazing programming language and ecosystem
+
+
+## Future Improvements for Bubbleroids
+
+### 1. Physics and Movement
+- **Player Inertia**: Implement gradual deceleration when the acceleration key is not pressed.
+- **Speed Limit**: Add a maximum speed limit for the player.
+- **Smooth Rotation**: Implement smoother player rotation.
+
+### 2. Gameplay
+- **Levels**: Implement a level system with increasing difficulty.
+- **Power-ups**: Add power-ups such as temporary shields or multiple shots.
+- **Lives**: Implement a life system for the player.
+- **Scoring**: Improve the scoring system, differentiating between large and small asteroids.
+
+### 3. Graphics and Visual Effects
+- **Particle Enhancement**: Expand the particle system for more impressive explosions.
+- **Animations**: Add animations for asteroid destruction and player ship.
+- **Sound Effects**: Implement sound effects for shots, explosions, and background.
+
+### 4. Optimization and Performance
+- **Use of SpriteBatch**: Utilize SpriteBatch to render multiple similar objects more efficiently.
+- **Optimized Collisions**: Implement a more efficient collision system, such as a quad-tree.
+
+### 5. User Interface
+- **Main Menu**: Add a main menu with options like "Play", "Settings", and "Exit".
+- **Pause Screen**: Implement a pause screen during the game.
+- **High Score Table**: Add a system to save and display the highest scores.
+
+### 6. Code and Structure
+- **State Management**: Implement a state machine to handle different game screens.
+- **Configuration**: Move constants to a separate configuration file.
+- **Unit Tests**: Add unit tests for the main game functions.
+
+### 7. Additional Features
+- **Multiplayer Mode**: Implement a local multiplayer mode.
+- **Customization**: Allow customization of the player's ship.
+- **Achievements**: Add an achievement system to increase replayability.
